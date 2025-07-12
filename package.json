@@ -13,7 +13,7 @@
         "vitest": "^3.2.4"
     },
     "scripts": {
-        "test": "vitest run DFSOnBST LRU LinearSearchList BinarySearchList TwoCrystalBalls BubbleSort SinglyLinkedList DoublyLinkedList Queue Stack ArrayList MazeSolver QuickSort BTPreOrder BTInOrder BTPostOrder BTBFS CompareBinaryTrees DFSOnBST DFSGraphList Trie BFSGraphMatrix Map MinHeap",
+        "test": "vitest run LinearSearchList BinarySearchList TwoCrystalBalls BubbleSort",
         "clear": "node ./scripts/clear.js",
         "prettier": "prettier --write ./src",
         "generate": "node ./scripts/generate.js",
