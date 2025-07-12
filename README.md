@@ -42,15 +42,15 @@ OUT OF DATE.  We have quite a few more.  need to update
 
 ### How It Works
 
-Make sure you have [Node.js](https://nodejs.org/en/) and yarn installed: `npm install --global yarn`
+Make sure you have [Node.js](https://nodejs.org/en/) and [pnpm](https://pnpm.io/installation) installed.
 
-clone the repo and install the dependencies
+Clone the repo and install dependencies.
 
 ```bash
 pnpm install
 ```
 
-edit the `ligma.config.js` file
+Edit the `ligma.config.js` file to include only the exercises you want to practice
 ```javascript
 export default = {
     dsa: [
