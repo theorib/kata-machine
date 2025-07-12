@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import LRU from "@code/LRU";
 
-test("LRU", function () {
+it("LRU", function () {
     const lru = new LRU<string, number>(3) as ILRU<string, number>;
 
     expect(lru.get("foo")).toEqual(undefined);

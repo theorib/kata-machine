@@ -34,7 +34,7 @@ const list_interface = {
     ...length_property,
 };
 
-module.exports = {
+export default {
     LRU: {
         generic: "<K, V>",
         type: "class",

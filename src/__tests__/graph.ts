@@ -1,3 +1,4 @@
+import { it, expect } from "vitest"
 export const list1: WeightedAdjacencyList = [];
 
 //      (1) --- (4) ---- (5)

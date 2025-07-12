@@ -1,7 +1,13 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { createRequire } from "module";
 
-module.exports.stats = function(config, day_path) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
+
+export function stats(config, day_path) {
     let stats;
     try {
         stats = require("../stats.json");
@@ -22,9 +28,9 @@ module.exports.stats = function(config, day_path) {
         JSON.stringify(stats, null, 4));
 }
 
-module.exports.package_json = function(config, day_path) {
+export function package_json(config, day_path) {
     const package_json = require("../package.json");
-    package_json.scripts.test = `jest ${config.dsa.join(" ")}`;
+    package_json.scripts.test = `vitest run ${config.dsa.join(" ")}`;
     package_json.scripts.day = `echo ${day_path}`;
 
     fs.writeFileSync(
@@ -32,7 +38,7 @@ module.exports.package_json = function(config, day_path) {
         JSON.stringify(package_json, null, 4));
 }
 
-module.exports.ts_config = function(set_to) {
+export function ts_config(set_to) {
     const ts_config = require("../tsconfig.json");
     ts_config.compilerOptions.paths["@code/*"] = [`${set_to}/*`];
 
@@ -41,12 +47,23 @@ module.exports.ts_config = function(set_to) {
         JSON.stringify(ts_config, null, 4));
 }
 
-module.exports.jest = function(set_to) {
-    const jest = require("../.jest.config.json");
-    jest.moduleNameMapper["@code/(.*)"] = [`<rootDir>/src/${set_to}/$1`];
+export function vitest(set_to) {
+    const vitest_config_path = path.join(__dirname, "..", "vitest.config.ts");
+    const config_content = `import { defineConfig } from 'vitest/config'
+import { resolve } from 'path'
 
-    fs.writeFileSync(
-        path.join(__dirname, "..", ".jest.config.json"),
-        JSON.stringify(jest, null, 4));
+export default defineConfig({
+  test: {
+    clearMocks: true,
+    include: ['src/__tests__/**/*.ts'],
+  },
+  resolve: {
+    alias: {
+      '@code': resolve(__dirname, './src/${set_to}'),
+    },
+  },
+})`;
+
+    fs.writeFileSync(vitest_config_path, config_content);
 }
 

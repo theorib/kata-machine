@@ -1,3 +1,4 @@
+import { it, expect } from "vitest"
 export function test_list(list: List<number>): void {
     list.append(5);
     list.append(7);

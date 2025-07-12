@@ -1,7 +1,8 @@
+import { it, expect } from "vitest"
 import prims from "@code/PrimsAlgorithm";
 import { list1 } from "./graph";
 
-test("PrimsAlgorithm", function () {
+it("PrimsAlgorithm", function () {
     // there is only one right answer for this graph
     expect(prims(list1)).toEqual([
         [

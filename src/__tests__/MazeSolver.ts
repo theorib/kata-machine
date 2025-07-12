@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import maze_solver from "@code/MazeSolver";
 
-test("maze solver", function () {
+it("maze solver", function () {
     const maze = [
         "xxxxxxxxxx x",
         "x        x x",

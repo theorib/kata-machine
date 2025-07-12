@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import Trie from "@code/Trie";
 
-test("Trie", function() {
+it("Trie", function() {
     const trie = new Trie();
     trie.insert("foo");
     trie.insert("fool");

@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import RingBuffer from "@code/RingBuffer";
 
-test("RingBuffer", function() {
+it("RingBuffer", function() {
     const buffer = new RingBuffer<number>();
 
     buffer.push(5);

@@ -1,7 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-const config = require("../ligma.config");
-const dsa = require("./dsa");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import config from "../ligma.config.js";
+import dsa from "./dsa.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const src_path = path.join(__dirname, "..", "src");
 let day = 1;
@@ -75,8 +79,8 @@ config.dsa.forEach(ds => {
     }
 });
 
-const align = require("./align-configs");
-align.jest(day_name);
+import * as align from "./align-configs.js";
+align.vitest(day_name);
 align.ts_config(day_name);
 align.package_json(config, relative_day_path);
 align.stats(config, day_path);

@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import Stack from "@code/Stack";
 
-test("stack", function () {
+it("stack", function () {
     const list = new Stack<number>();
 
     list.push(5);

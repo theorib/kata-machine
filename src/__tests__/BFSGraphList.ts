@@ -1,7 +1,8 @@
+import { it, expect } from "vitest"
 import bfs from "@code/BFSGraphList";
 import { list2 } from "./graph";
 
-test("bfs - graph", function () {
+it("bfs - graph", function () {
     expect(bfs(list2, 0, 6)).toEqual([
         0,
         1,

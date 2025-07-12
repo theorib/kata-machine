@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import quick_sort from "@code/QuickSort";
 
-test("quick-sort", function () {
+it("quick-sort", function () {
     const arr = [9, 3, 7, 4, 69, 420, 42];
 
     debugger;

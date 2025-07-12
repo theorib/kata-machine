@@ -1,7 +1,8 @@
+import { it, expect } from "vitest"
 import bt_post_order from "@code/BTPostOrder";
 import { tree } from "./tree";
 
-test("post order", function () {
+it("post order", function () {
     expect(bt_post_order(tree)).toEqual([
         7,
         5,

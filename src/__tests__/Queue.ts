@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import Queue from "@code/Queue";
 
-test("queue", function () {
+it("queue", function () {
     const list = new Queue<number>();
 
     list.enqueue(5);

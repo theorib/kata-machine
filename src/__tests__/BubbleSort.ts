@@ -1,6 +1,7 @@
+import { it, expect } from "vitest"
 import bubble_sort from "@code/BubbleSort";
 
-test("bubble-sort", function () {
+it("bubble-sort", function () {
     const arr = [9, 3, 7, 4, 69, 420, 42];
 
     debugger;

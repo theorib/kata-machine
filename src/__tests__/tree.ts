@@ -1,3 +1,4 @@
+import { it, expect } from "vitest"
 export const tree: BinaryNode<number> = {
     value: 20,
     right: {
