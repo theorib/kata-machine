@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import quick_sort from "@code/QuickSort";
 
 it("quick-sort", function () {

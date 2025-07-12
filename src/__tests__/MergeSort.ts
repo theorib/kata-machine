@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import merge_sort from "@code/MergeSort";
 
 it("merge-sort", function () {

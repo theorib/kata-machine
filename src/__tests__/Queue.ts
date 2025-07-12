@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import Queue from "@code/Queue";
 
 it("queue", function () {

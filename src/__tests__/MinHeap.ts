@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import MinHeap from "@code/MinHeap";
 
 it("min heap", function () {
@@ -27,5 +27,3 @@ it("min heap", function () {
     expect(heap.delete()).toEqual(420);
     expect(heap.length).toEqual(0);
 });
-
-

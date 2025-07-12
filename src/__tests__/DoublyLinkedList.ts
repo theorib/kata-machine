@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import LinkedList from "@code/DoublyLinkedList";
 import { test_list } from "./ListTest";
 

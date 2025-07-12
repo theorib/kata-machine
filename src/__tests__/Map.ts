@@ -1,7 +1,7 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import MyMap from "@code/Map";
 
-it("Map", function() {
+it("Map", function () {
     const map = new MyMap<string, number>();
     map.set("foo", 55);
     expect(map.size()).toEqual(1);
@@ -11,7 +11,6 @@ it("Map", function() {
     expect(map.size()).toEqual(3);
     map.set("bar", 69);
     expect(map.size()).toEqual(4);
-
 
     expect(map.get("bar")).toEqual(69);
     expect(map.get("blaz")).toEqual(undefined);
@@ -23,4 +22,3 @@ it("Map", function() {
     expect(map.size()).toEqual(3);
     expect(map.get("bar")).toEqual(undefined);
 });
-

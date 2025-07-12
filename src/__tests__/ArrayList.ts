@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import ArrayList from "@code/ArrayList";
 import { test_list } from "./ListTest";
 

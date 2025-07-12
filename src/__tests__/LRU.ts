@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import LRU from "@code/LRU";
 
 it("LRU", function () {
@@ -26,4 +26,3 @@ it("LRU", function () {
     // front of the list, so baz became the end
     expect(lru.get("baz")).toEqual(undefined);
 });
-

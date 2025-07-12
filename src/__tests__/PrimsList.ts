@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import prims from "@code/PrimsAlgorithm";
 import { list1 } from "./graph";
 

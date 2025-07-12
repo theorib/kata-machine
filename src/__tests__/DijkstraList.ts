@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import dijkstra_list from "@code/DijkstraList";
 import { list1 } from "./graph";
 

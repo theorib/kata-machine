@@ -1,7 +1,7 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import RingBuffer from "@code/RingBuffer";
 
-it("RingBuffer", function() {
+it("RingBuffer", function () {
     const buffer = new RingBuffer<number>();
 
     buffer.push(5);
@@ -21,5 +21,3 @@ it("RingBuffer", function() {
     expect(buffer.get(1)).toEqual(9);
     expect(buffer.get(0)).toEqual(42);
 });
-
-

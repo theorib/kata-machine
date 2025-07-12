@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 export const tree: BinaryNode<number> = {
     value: 20,
     right: {
@@ -19,7 +19,7 @@ export const tree: BinaryNode<number> = {
                 value: 29,
                 right: null,
                 left: null,
-            }
+            },
         },
     },
     left: {
@@ -37,8 +37,8 @@ export const tree: BinaryNode<number> = {
                 left: null,
             },
             left: null,
-        }
-    }
+        },
+    },
 };
 
 export const tree2: BinaryNode<number> = {
@@ -65,7 +65,7 @@ export const tree2: BinaryNode<number> = {
                     right: null,
                     left: null,
                 },
-            }
+            },
         },
     },
     left: {
@@ -83,6 +83,6 @@ export const tree2: BinaryNode<number> = {
                 left: null,
             },
             left: null,
-        }
-    }
+        },
+    },
 };

@@ -1,4 +1,4 @@
-import { it, expect } from "vitest"
+import { it, expect } from "vitest";
 import insertion_sort from "@code/InsertionSort";
 
 it("insertion-sort", function () {
