@@ -26,3 +26,52 @@ it("LRU", function () {
     // front of the list, so baz became the end
     expect(lru.get("baz")).toEqual(undefined);
 });
+
+it("LRU-2", function () {
+    const lru = new LRU<string, number>(1) as ILRU<string, number>;
+    
+    lru.update("single", 42);
+    expect(lru.get("single")).toEqual(42);
+    
+    lru.update("replace", 100);
+    expect(lru.get("single")).toEqual(undefined);
+    expect(lru.get("replace")).toEqual(100);
+});
+
+it("LRU-3", function () {
+    const lru = new LRU<number, string>(2) as ILRU<number, string>;
+    
+    lru.update(1, "one");
+    lru.update(2, "two");
+    
+    expect(lru.get(1)).toEqual("one");
+    expect(lru.get(2)).toEqual("two");
+    
+    lru.update(3, "three");
+    expect(lru.get(1)).toEqual(undefined);
+    expect(lru.get(2)).toEqual("two");
+    expect(lru.get(3)).toEqual("three");
+});
+
+it("LRU-4", function () {
+    const lru = new LRU<string, number>(2) as ILRU<string, number>;
+    
+    lru.update("a", 1);
+    lru.update("b", 2);
+    
+    lru.update("a", 10);
+    expect(lru.get("a")).toEqual(10);
+    expect(lru.get("b")).toEqual(2);
+    
+    lru.update("c", 3);
+    expect(lru.get("a")).toEqual(10);
+    expect(lru.get("b")).toEqual(undefined);
+    expect(lru.get("c")).toEqual(3);
+});
+
+it("LRU-5", function () {
+    const lru = new LRU<string, number>(0) as ILRU<string, number>;
+    
+    lru.update("test", 1);
+    expect(lru.get("test")).toEqual(undefined);
+});
