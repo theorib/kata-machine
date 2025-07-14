@@ -1,5 +1,5 @@
 import { it, expect } from "vitest";
-import two_crystal_balls from "@code/TwoCrystalBalls";
+import twoCrystakBalls from "@code/TwoCrystalBalls";
 
 it("two crystal balls", function () {
     let idx = Math.floor(Math.random() * 10000);
@@ -9,31 +9,40 @@ it("two crystal balls", function () {
         data[i] = true;
     }
 
-    expect(two_crystal_balls(data)).toEqual(idx);
-    expect(two_crystal_balls(new Array(821).fill(false))).toEqual(-1);
+    expect(twoCrystakBalls(data)).toEqual(idx);
+    expect(twoCrystakBalls(new Array(821).fill(false))).toEqual(-1);
 });
 
 it("two crystal balls-2", function () {
-    expect(two_crystal_balls([])).toEqual(-1);
+    expect(twoCrystakBalls([])).toEqual(-1);
 });
 
 it("two crystal balls-3", function () {
-    expect(two_crystal_balls([true])).toEqual(0);
-    expect(two_crystal_balls([false])).toEqual(-1);
+    expect(twoCrystakBalls([true])).toEqual(0);
+    expect(twoCrystakBalls([false])).toEqual(-1);
 });
 
 it("two crystal balls-4", function () {
-    expect(two_crystal_balls([false, true])).toEqual(1);
-    expect(two_crystal_balls([true, true])).toEqual(0);
-    expect(two_crystal_balls([false, false])).toEqual(-1);
+    expect(twoCrystakBalls([false, true])).toEqual(1);
+    expect(twoCrystakBalls([true, true])).toEqual(0);
+    expect(twoCrystakBalls([false, false])).toEqual(-1);
 });
 
 it("two crystal balls-5", function () {
     const data = [false, false, false, false, true, true, true];
-    expect(two_crystal_balls(data)).toEqual(4);
+    expect(twoCrystakBalls(data)).toEqual(4);
 });
 
 it("two crystal balls-6", function () {
     const allTrue = new Array(100).fill(true);
-    expect(two_crystal_balls(allTrue)).toEqual(0);
+    expect(twoCrystakBalls(allTrue)).toEqual(0);
+});
+
+it("two crystal balls-7", function () {
+    const data = [false, false, false, false, false, false, true];
+    expect(twoCrystakBalls(data)).toEqual(6);
+});
+it("two crystal balls-8", function () {
+    const data = [false, false, false, false, false, false, false, true];
+    expect(twoCrystakBalls(data)).toEqual(7);
 });
