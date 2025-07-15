@@ -4,8 +4,18 @@ import { fileURLToPath } from "url";
 import config from "../ligma.config.js";
 import dsa from "./dsa.js";
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+function getParamDescription(paramName, paramType, item) {
+    return item.paramDescriptions?.[paramName] || `Parameter of type ${paramType}`;
+}
+
+function getReturnDescription(item) {
+    return item.returnDescription || `Returns ${item.return}`;
+}
+
 
 const src_path = path.join(__dirname, "..", "src");
 let day = 1;
@@ -48,7 +58,14 @@ function generate_getter(getter) {
 }
 
 function create_class(name, item) {
-    fs.writeFileSync(path.join(day_path, `${name}.ts`), `export default class ${name}${item.generic || ""} {
+    const tsdoc = item.description ? `/**
+ * ${item.description}
+ * 
+ * ${item.details}
+ */
+` : "";
+    
+    fs.writeFileSync(path.join(day_path, `${name}.ts`), `${tsdoc}export default class ${name}${item.generic || ""} {
     ${(item.properties || []).map(generate_property).join("\n    ")}
 
     ${(item.getters || []).map(generate_getter).join("\n    ")}
@@ -62,7 +79,25 @@ function create_class(name, item) {
 
 function create_function(name, item) {
     const g = item.generic ? item.generic : "";
-    fs.writeFileSync(path.join(day_path, `${name}.ts`), `export default function ${item.fn}${g}(${item.args}): ${item.return} {
+    
+    let paramDocs = "";
+    if (item.args && item.args.trim()) {
+        const params = item.args.split(',').map(arg => {
+            const [paramName, paramType] = arg.trim().split(':').map(s => s.trim());
+            return `${paramName} - ${getParamDescription(paramName, paramType, item)}`;
+        });
+        paramDocs = `\n * @param ${params.join('\n * @param ')}`;
+    }
+    
+    const tsdoc = item.description ? `/**
+ * ${item.description}
+ * 
+ * ${item.details}${paramDocs}
+ * @returns ${getReturnDescription(item)}
+ */
+` : "";
+    
+    fs.writeFileSync(path.join(day_path, `${name}.ts`), `${tsdoc}export default function ${item.fn}${g}(${item.args}): ${item.return} {
 
 }`);
 }
