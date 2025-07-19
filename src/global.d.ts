@@ -38,7 +38,7 @@ declare type GeneralNode<T> = {
     children: GeneralNode<T>[];
 };
 
-declare interface ILRU<K, V> {
+declare interface ILeastRecentlyUsedCacheDS<K, V> {
     update(key: K, value: V): void;
     get(key: K): V | undefined;
 }

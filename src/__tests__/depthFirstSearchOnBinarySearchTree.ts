@@ -1,5 +1,5 @@
 import { it, expect } from "vitest";
-import dfs from "@code/DFSOnBST";
+import dfs from "@code/depthFirstSearchOnBinarySearchTree";
 import { tree } from "./tree";
 
 it("DFS on BST", function () {

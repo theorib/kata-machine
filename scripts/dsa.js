@@ -1,4 +1,4 @@
-const length_property = {
+const lengthProperty = {
     properties: [
         {
             name: "length",
@@ -8,7 +8,7 @@ const length_property = {
     ],
 };
 
-const list_interface = {
+const listInterface = {
     methods: [
         {
             name: "prepend",
@@ -41,15 +41,17 @@ const list_interface = {
             return: "T | undefined",
         },
     ],
-    ...length_property,
+    ...lengthProperty,
 };
 
 export default {
-    LRU: {
+    LeastRecentlyUsedCacheDS: {
         generic: "<K, V>",
         type: "class",
-        description: "Implement a Least Recently Used (LRU) cache data structure.",
-        details: "The cache should support get and update operations with O(1) time complexity. When the cache reaches capacity, the least recently used item should be evicted.",
+        description:
+            "Implement a Least Recently Used (LRU) cache data structure.",
+        details:
+            "The cache should support get and update operations with O(1) time complexity. When the cache reaches capacity, the least recently used item should be evicted.",
         methods: [
             {
                 name: "update",
@@ -73,7 +75,8 @@ export default {
     MinHeap: {
         type: "class",
         description: "Implement a Min Heap data structure.",
-        details: "A binary tree where each parent node is smaller than its children. Should support insert and delete (extract minimum) operations.",
+        details:
+            "A binary tree where each parent node is smaller than its children. Should support insert and delete (extract minimum) operations.",
         methods: [
             {
                 name: "insert",
@@ -99,7 +102,8 @@ export default {
         generic: "<T extends (string | number), V>",
         type: "class",
         description: "Implement a hash map data structure.",
-        details: "A key-value store that supports get, set, delete, and size operations with average O(1) time complexity.",
+        details:
+            "A key-value store that supports get, set, delete, and size operations with average O(1) time complexity.",
         methods: [
             {
                 name: "get",
@@ -126,8 +130,10 @@ export default {
     RingBuffer: {
         generic: "<T>",
         type: "class",
-        description: "Implement a ring buffer (circular buffer) data structure.",
-        details: "A fixed-size buffer that wraps around when full. Should support push, pop, and get operations.",
+        description:
+            "Implement a ring buffer (circular buffer) data structure.",
+        details:
+            "A fixed-size buffer that wraps around when full. Should support push, pop, and get operations.",
         methods: [
             {
                 name: "push",
@@ -157,29 +163,33 @@ export default {
         type: "class",
         generic: "<T>",
         description: "Implement a dynamic array (ArrayList) data structure.",
-        details: "A resizable array that supports prepend, append, insert, remove, and get operations with automatic resizing.",
-        ...list_interface,
+        details:
+            "A resizable array that supports prepend, append, insert, remove, and get operations with automatic resizing.",
+        ...listInterface,
     },
     SinglyLinkedList: {
         generic: "<T>",
         type: "class",
         description: "Implement a singly linked list data structure.",
-        details: "A linear data structure where each node contains data and a reference to the next node.",
-        ...list_interface,
+        details:
+            "A linear data structure where each node contains data and a reference to the next node.",
+        ...listInterface,
     },
     DoublyLinkedList: {
         generic: "<T>",
         type: "class",
         description: "Implement a doubly linked list data structure.",
-        details: "A linear data structure where each node contains data and references to both the next and previous nodes.",
-        ...list_interface,
+        details:
+            "A linear data structure where each node contains data and references to both the next and previous nodes.",
+        ...listInterface,
     },
     Queue: {
         generic: "<T>",
         type: "class",
         description: "Implement a queue data structure.",
-        details: "A First-In-First-Out (FIFO) data structure that supports enqueue, dequeue, and peek operations.",
-        ...length_property,
+        details:
+            "A First-In-First-Out (FIFO) data structure that supports enqueue, dequeue, and peek operations.",
+        ...lengthProperty,
         methods: [
             {
                 name: "enqueue",
@@ -202,8 +212,9 @@ export default {
         generic: "<T>",
         type: "class",
         description: "Implement a stack data structure.",
-        details: "A Last-In-First-Out (LIFO) data structure that supports push, pop, and peek operations.",
-        ...length_property,
+        details:
+            "A Last-In-First-Out (LIFO) data structure that supports push, pop, and peek operations.",
+        ...lengthProperty,
         methods: [
             {
                 name: "push",
@@ -226,7 +237,8 @@ export default {
     Trie: {
         type: "class",
         description: "Implement a trie (prefix tree) data structure.",
-        details: "A tree structure for storing strings that allows efficient prefix-based operations like autocomplete.",
+        details:
+            "A tree structure for storing strings that allows efficient prefix-based operations like autocomplete.",
         methods: [
             {
                 name: "insert",
@@ -252,47 +264,64 @@ export default {
         args: "arr: number[]",
         return: "void",
         description: "Implement the bubble sort algorithm.",
-        details: "Sort an array by repeatedly stepping through the list, comparing adjacent elements and swapping them if they are in the wrong order.",
+        details:
+            "Sort an array by repeatedly stepping through the list, comparing adjacent elements and swapping them if they are in the wrong order.",
         paramDescriptions: {
-            "arr": "The array to sort"
+            arr: "The array to sort",
         },
-        returnDescription: "No return value - modifies the input array in place"
+        returnDescription:
+            "No return value - modifies the input array in place",
     },
 
     InsertionSort: {
         type: "fn",
-        fn: "insertion_sort",
+        fn: "insertionSort",
         args: "arr: number[]",
         return: "void",
         description: "Implement the insertion sort algorithm.",
-        details: "Sort an array by building the final sorted array one element at a time, inserting each element into its correct position.",
+        details:
+            "Sort an array by building the final sorted array one element at a time, inserting each element into its correct position among the previously sorted elements.",
+        paramDescriptions: {
+            arr: "The array to sort",
+        },
+        returnDescription:
+            "No return value - modifies the input array in place",
     },
 
     MergeSort: {
         type: "fn",
-        fn: "merge_sort",
+        fn: "mergeSort",
         args: "arr: number[]",
         return: "void",
         description: "Implement the merge sort algorithm.",
-        details: "A divide-and-conquer sorting algorithm that divides the array into halves, sorts them, and then merges them back together.",
+        details:
+            "A divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts them, and then merges them back together in sorted order.",
+        paramDescriptions: {
+            arr: "The array to sort",
+        },
+        returnDescription:
+            "No return value - modifies the input array in place",
     },
 
     QuickSort: {
         type: "fn",
-        fn: "quick_sort",
+        fn: "quickSort",
         args: "arr: number[]",
         return: "void",
         description: "Implement the quick sort algorithm.",
-        details: "A divide-and-conquer sorting algorithm that selects a pivot element and partitions the array around it.",
+        details:
+            "A divide-and-conquer sorting algorithm that selects a pivot element and partitions the array around it.",
     },
 
     DijkstraList: {
         type: "fn",
-        fn: "dijkstra_list",
+        fn: "dijkstraList",
         args: "source: number, sink: number, arr: WeightedAdjacencyList",
         return: "number[]",
-        description: "Implement Dijkstra's shortest path algorithm for adjacency lists.",
-        details: "Find the shortest path between two nodes in a weighted graph represented as an adjacency list.",
+        description:
+            "Implement Dijkstra's shortest path algorithm for adjacency lists.",
+        details:
+            "Find the shortest path between two nodes in a weighted graph represented as an adjacency list.",
     },
 
     PrimsList: {
@@ -301,7 +330,8 @@ export default {
         args: "list: WeightedAdjacencyList",
         return: "WeightedAdjacencyList | null",
         description: "Implement Prim's algorithm for minimum spanning tree.",
-        details: "Find the minimum spanning tree of a weighted undirected graph using Prim's algorithm.",
+        details:
+            "Find the minimum spanning tree of a weighted undirected graph using Prim's algorithm.",
     },
 
     BinarySearchList: {
@@ -310,12 +340,14 @@ export default {
         args: "haystack: number[], needle: number",
         return: "boolean",
         description: "Implement binary search on a sorted array.",
-        details: "Search for a target value in a sorted array using the binary search algorithm with O(log n) time complexity.",
+        details:
+            "Search for a target value in a sorted array using the binary search algorithm with O(log n) time complexity.",
         paramDescriptions: {
-            "haystack": "The array to search in",
-            "needle": "The value to search for"
+            haystack: "The array to search in",
+            needle: "The value to search for",
         },
-        returnDescription: "True if the needle is found in the haystack, false otherwise"
+        returnDescription:
+            "True if the needle is found in the haystack, false otherwise",
     },
 
     LinearSearchList: {
@@ -324,25 +356,29 @@ export default {
         args: "haystack: number[], needle: number",
         return: "boolean",
         description: "Implement linear search on an array.",
-        details: "Search for a target value in an array by checking each element sequentially until found or end of array is reached.",
+        details:
+            "Search for a target value in an array by checking each element sequentially until found or end of array is reached.",
         paramDescriptions: {
-            "haystack": "The array to search in",
-            "needle": "The value to search for"
+            haystack: "The array to search in",
+            needle: "The value to search for",
         },
-        returnDescription: "True if the needle is found in the haystack, false otherwise"
+        returnDescription:
+            "True if the needle is found in the haystack, false otherwise",
     },
 
     TwoCrystalBalls: {
         type: "fn",
-        fn: "twoCrystakBalls",
+        fn: "twoCrystalBalls",
         args: "breaks: boolean[]",
         return: "number",
         description: "Solve the two crystal balls problem.",
-        details: "Given an array of booleans representing floors where balls break, find the exact floor where balls start breaking using only 2 crystal balls.",
+        details:
+            "Given an array of booleans representing floors where balls break, find the exact floor where balls start breaking using only 2 crystal balls.",
         paramDescriptions: {
-            "breaks": "Array of booleans representing floors where balls break"
+            breaks: "Array of booleans representing floors where balls break",
         },
-        returnDescription: "The exact floor where balls start breaking, or -1 if no floor breaks the balls"
+        returnDescription:
+            "The exact floor where balls start breaking, or -1 if no floor breaks the balls",
     },
 
     MazeSolver: {
@@ -351,12 +387,13 @@ export default {
         args: "maze: string[], wall: string, start: Point, end: Point",
         return: "Point[]",
         description: "Implement a maze solver algorithm.",
-        details: "Find a path from start to end in a maze using backtracking or similar pathfinding algorithm.",
+        details:
+            "Find a path from start to end in a maze using backtracking or similar pathfinding algorithm.",
     },
 
     BTPreOrder: {
         type: "fn",
-        fn: "pre_order_search",
+        fn: "preOrderSearch",
         args: "head: BinaryNode<number>",
         return: "number[]",
         description: "Implement pre-order traversal of a binary tree.",
@@ -365,7 +402,7 @@ export default {
 
     BTInOrder: {
         type: "fn",
-        fn: "in_order_search",
+        fn: "inOrderSearch",
         args: "head: BinaryNode<number>",
         return: "number[]",
         description: "Implement in-order traversal of a binary tree.",
@@ -374,7 +411,7 @@ export default {
 
     BTPostOrder: {
         type: "fn",
-        fn: "post_order_search",
+        fn: "postOrderSearch",
         args: "head: BinaryNode<number>",
         return: "number[]",
         description: "Implement post-order traversal of a binary tree.",
@@ -387,7 +424,8 @@ export default {
         args: "head: BinaryNode<number>, needle: number",
         return: "boolean",
         description: "Implement breadth-first search on a binary tree.",
-        details: "Search for a target value in a binary tree using breadth-first search (level-order traversal).",
+        details:
+            "Search for a target value in a binary tree using breadth-first search (level-order traversal).",
     },
 
     CompareBinaryTrees: {
@@ -395,17 +433,20 @@ export default {
         fn: "compare",
         args: "a: BinaryNode<number> | null, b: BinaryNode<number> | null",
         return: "boolean",
-        description: "Compare two binary trees for structural and value equality.",
-        details: "Determine if two binary trees are identical in both structure and node values.",
+        description:
+            "Compare two binary trees for structural and value equality.",
+        details:
+            "Determine if two binary trees are identical in both structure and node values.",
     },
 
-    DFSOnBST: {
+    depthFirstSearchOnBinarySearchTree: {
         type: "fn",
         fn: "dfs",
         args: "head: BinaryNode<number>, needle: number",
         return: "boolean",
         description: "Implement depth-first search on a binary search tree.",
-        details: "Search for a target value in a binary search tree using depth-first search.",
+        details:
+            "Search for a target value in a binary search tree using depth-first search.",
     },
 
     DFSGraphList: {
@@ -413,8 +454,10 @@ export default {
         fn: "dfs",
         args: "graph: WeightedAdjacencyList, source: number, needle: number",
         return: "number[] | null",
-        description: "Implement depth-first search on a graph represented as adjacency list.",
-        details: "Search for a target node in a graph using depth-first search and return the path if found.",
+        description:
+            "Implement depth-first search on a graph represented as adjacency list.",
+        details:
+            "Search for a target node in a graph using depth-first search and return the path if found.",
     },
 
     BFSGraphList: {
@@ -422,8 +465,10 @@ export default {
         fn: "bfs",
         args: "graph: WeightedAdjacencyList, source: number, needle: number",
         return: "number[] | null",
-        description: "Implement breadth-first search on a graph represented as adjacency list.",
-        details: "Search for a target node in a graph using breadth-first search and return the path if found.",
+        description:
+            "Implement breadth-first search on a graph represented as adjacency list.",
+        details:
+            "Search for a target node in a graph using breadth-first search and return the path if found.",
     },
 
     BFSGraphMatrix: {
@@ -431,7 +476,9 @@ export default {
         fn: "bfs",
         args: "graph: WeightedAdjacencyMatrix, source: number, needle: number",
         return: "number[] | null",
-        description: "Implement breadth-first search on a graph represented as adjacency matrix.",
-        details: "Search for a target node in a graph using breadth-first search and return the path if found.",
+        description:
+            "Implement breadth-first search on a graph represented as adjacency matrix.",
+        details:
+            "Search for a target node in a graph using breadth-first search and return the path if found.",
     },
 };
