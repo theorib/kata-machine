@@ -64,12 +64,14 @@ Edit the `ligma.config.js` file to include only the exercises you want to practi
 ```javascript
 export default {
     dsa: [
-        "DFSOnBST",
-        "LRU",
+        "depthFirstSearchOnBinarySearchTree",
+        "LeastRecentlyUsedCacheDS",
         "LinearSearchList",
         "BinarySearchList",
         "TwoCrystalBalls",
         "BubbleSort",
+        "InsertionSort",
+        "MergeSort",
         "SinglyLinkedList",
         "DoublyLinkedList",
         "Queue",
@@ -82,7 +84,7 @@ export default {
         "BTPostOrder",
         "BTBFS",
         "CompareBinaryTrees",
-        "DFSOnBST",
+        "depthFirstSearchOnBinarySearchTree",
         "DFSGraphList",
         "Trie",
         "BFSGraphMatrix",
@@ -111,7 +113,7 @@ src/day2
 #### Testing
 
 ```
-pnpm test
+pnpm test:all
 ```
 
 I have yet to create a testing strategy for next sets of algorithms, but we will get there when i cross that bridge.
