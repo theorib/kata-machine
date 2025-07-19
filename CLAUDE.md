@@ -27,7 +27,7 @@ The project uses a unique daily practice system:
 
 ### Core Workflow
 - `npm run generate` or `pnpm generate`: Create a new day of practice problems
-- `npm test` or `pnpm test`: Run tests for all configured algorithms
+- `npm run test:all` or `pnpm test:all`: Run tests for all configured algorithms
 - `npm run day`: Show current day directory (src/day8)
 
 ### Utility Commands  
@@ -41,7 +41,7 @@ Uses Vitest for testing with these key aspects:
 - Tests are located in `src/__tests__/` 
 - The `@code` alias automatically points to the current day's implementation folder
 - Tests import from `@code/AlgorithmName` to test your implementations
-- Running `npm test` tests all algorithms defined in the test script
+- Running `npm run test:all` tests all algorithms defined in the test script
 
 ## TypeScript Configuration
 

@@ -13,7 +13,8 @@
         "vitest": "^3.2.4"
     },
     "scripts": {
-        "test": "vitest run depthFirstSearchOnBinarySearchTree LeastRecentlyUsedCacheDS LinearSearchList BinarySearchList TwoCrystalBalls BubbleSort InsertionSort MergeSort SinglyLinkedList DoublyLinkedList Queue Stack ArrayList MazeSolver QuickSort BTPreOrder BTInOrder BTPostOrder BTBFS CompareBinaryTrees depthFirstSearchOnBinarySearchTree DFSGraphList Trie BFSGraphMatrix Map MinHeap",
+        "test": "vitest",
+        "test:all": "vitest run depthFirstSearchOnBinarySearchTree LeastRecentlyUsedCacheDS LinearSearchList BinarySearchList TwoCrystalBalls BubbleSort InsertionSort MergeSort SinglyLinkedList DoublyLinkedList Queue Stack ArrayList MazeSolver QuickSort BTPreOrder BTInOrder BTPostOrder BTBFS CompareBinaryTrees depthFirstSearchOnBinarySearchTree DFSGraphList Trie BFSGraphMatrix Map MinHeap",
         "clear": "node ./scripts/clear.js",
         "prettier": "prettier --write ./src",
         "generate": "node ./scripts/generate.js",

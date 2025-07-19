@@ -30,7 +30,7 @@ export function stats(config, day_path) {
 
 export function package_json(config, day_path) {
     const package_json = require("../package.json");
-    package_json.scripts.test = `vitest run ${config.dsa.join(" ")}`;
+    package_json.scripts["test:all"] = `vitest run ${config.dsa.join(" ")}`;
     package_json.scripts.day = `echo ${day_path}`;
 
     fs.writeFileSync(
