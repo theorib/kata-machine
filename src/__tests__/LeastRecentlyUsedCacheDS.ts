@@ -2,7 +2,9 @@ import { it, expect } from "vitest";
 import LeastRecentlyUsedCacheDS from "@code/LeastRecentlyUsedCacheDS";
 
 it("LRU", function () {
-    const lru = new LeastRecentlyUsedCacheDS<string, number>(3) as ILeastRecentlyUsedCacheDS<string, number>;
+    const lru = new LeastRecentlyUsedCacheDS<string, number>(
+        3,
+    ) as ILeastRecentlyUsedCacheDS<string, number>;
 
     expect(lru.get("foo")).toEqual(undefined);
     lru.update("foo", 69);
@@ -28,25 +30,29 @@ it("LRU", function () {
 });
 
 it("LRU-2", function () {
-    const lru = new LeastRecentlyUsedCacheDS<string, number>(1) as ILeastRecentlyUsedCacheDS<string, number>;
-    
+    const lru = new LeastRecentlyUsedCacheDS<string, number>(
+        1,
+    ) as ILeastRecentlyUsedCacheDS<string, number>;
+
     lru.update("single", 42);
     expect(lru.get("single")).toEqual(42);
-    
+
     lru.update("replace", 100);
     expect(lru.get("single")).toEqual(undefined);
     expect(lru.get("replace")).toEqual(100);
 });
 
 it("LRU-3", function () {
-    const lru = new LeastRecentlyUsedCacheDS<number, string>(2) as ILeastRecentlyUsedCacheDS<number, string>;
-    
+    const lru = new LeastRecentlyUsedCacheDS<number, string>(
+        2,
+    ) as ILeastRecentlyUsedCacheDS<number, string>;
+
     lru.update(1, "one");
     lru.update(2, "two");
-    
+
     expect(lru.get(1)).toEqual("one");
     expect(lru.get(2)).toEqual("two");
-    
+
     lru.update(3, "three");
     expect(lru.get(1)).toEqual(undefined);
     expect(lru.get(2)).toEqual("two");
@@ -54,15 +60,17 @@ it("LRU-3", function () {
 });
 
 it("LRU-4", function () {
-    const lru = new LeastRecentlyUsedCacheDS<string, number>(2) as ILeastRecentlyUsedCacheDS<string, number>;
-    
+    const lru = new LeastRecentlyUsedCacheDS<string, number>(
+        2,
+    ) as ILeastRecentlyUsedCacheDS<string, number>;
+
     lru.update("a", 1);
     lru.update("b", 2);
-    
+
     lru.update("a", 10);
     expect(lru.get("a")).toEqual(10);
     expect(lru.get("b")).toEqual(2);
-    
+
     lru.update("c", 3);
     expect(lru.get("a")).toEqual(10);
     expect(lru.get("b")).toEqual(undefined);
@@ -70,8 +78,10 @@ it("LRU-4", function () {
 });
 
 it("LRU-5", function () {
-    const lru = new LeastRecentlyUsedCacheDS<string, number>(0) as ILeastRecentlyUsedCacheDS<string, number>;
-    
+    const lru = new LeastRecentlyUsedCacheDS<string, number>(
+        0,
+    ) as ILeastRecentlyUsedCacheDS<string, number>;
+
     lru.update("test", 1);
     expect(lru.get("test")).toEqual(undefined);
 });

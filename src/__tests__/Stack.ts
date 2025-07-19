@@ -29,7 +29,7 @@ it("stack", function () {
 
 it("stack-2", function () {
     const stack = new Stack<number>();
-    
+
     expect(stack.length).toEqual(0);
     expect(stack.pop()).toEqual(undefined);
     expect(stack.peek()).toEqual(undefined);
@@ -37,10 +37,10 @@ it("stack-2", function () {
 
 it("stack-3", function () {
     const stack = new Stack<string>();
-    
+
     stack.push("hello");
     stack.push("world");
-    
+
     expect(stack.peek()).toEqual("world");
     expect(stack.length).toEqual(2);
     expect(stack.pop()).toEqual("world");
@@ -50,7 +50,7 @@ it("stack-3", function () {
 
 it("stack-4", function () {
     const stack = new Stack<number>();
-    
+
     stack.push(1);
     expect(stack.peek()).toEqual(1);
     expect(stack.pop()).toEqual(1);
@@ -60,17 +60,17 @@ it("stack-4", function () {
 
 it("stack-5", function () {
     const stack = new Stack<number>();
-    
+
     for (let i = 0; i < 100; i++) {
         stack.push(i);
     }
-    
+
     expect(stack.length).toEqual(100);
     expect(stack.peek()).toEqual(99);
-    
+
     for (let i = 99; i >= 0; i--) {
         expect(stack.pop()).toEqual(i);
     }
-    
+
     expect(stack.length).toEqual(0);
 });

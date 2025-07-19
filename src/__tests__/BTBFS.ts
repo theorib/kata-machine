@@ -13,7 +13,11 @@ it("bt bfs-2", function () {
 });
 
 it("bt bfs-3", function () {
-    const singleNode: BinaryNode<number> = { value: 42, left: null, right: null };
+    const singleNode: BinaryNode<number> = {
+        value: 42,
+        left: null,
+        right: null,
+    };
     expect(bfs(singleNode, 42)).toEqual(true);
     expect(bfs(singleNode, 43)).toEqual(false);
 });
@@ -32,9 +36,9 @@ it("bt bfs-5", function () {
         left: {
             value: 5,
             left: { value: 1, left: null, right: null },
-            right: null
+            right: null,
         },
-        right: null
+        right: null,
     };
     expect(bfs(leftOnlyTree, 1)).toEqual(true);
     expect(bfs(leftOnlyTree, 5)).toEqual(true);

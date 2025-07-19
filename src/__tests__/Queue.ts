@@ -33,7 +33,7 @@ it("queue", function () {
 
 it("queue-2", function () {
     const queue = new Queue<number>();
-    
+
     expect(queue.length).toEqual(0);
     expect(queue.deque()).toEqual(undefined);
     expect(queue.peek()).toEqual(undefined);
@@ -41,10 +41,10 @@ it("queue-2", function () {
 
 it("queue-3", function () {
     const queue = new Queue<string>();
-    
+
     queue.enqueue("first");
     queue.enqueue("second");
-    
+
     expect(queue.peek()).toEqual("first");
     expect(queue.length).toEqual(2);
     expect(queue.deque()).toEqual("first");
@@ -54,7 +54,7 @@ it("queue-3", function () {
 
 it("queue-4", function () {
     const queue = new Queue<number>();
-    
+
     queue.enqueue(42);
     expect(queue.peek()).toEqual(42);
     expect(queue.deque()).toEqual(42);
@@ -64,17 +64,17 @@ it("queue-4", function () {
 
 it("queue-5", function () {
     const queue = new Queue<number>();
-    
+
     for (let i = 0; i < 100; i++) {
         queue.enqueue(i);
     }
-    
+
     expect(queue.length).toEqual(100);
     expect(queue.peek()).toEqual(0);
-    
+
     for (let i = 0; i < 100; i++) {
         expect(queue.deque()).toEqual(i);
     }
-    
+
     expect(queue.length).toEqual(0);
 });
