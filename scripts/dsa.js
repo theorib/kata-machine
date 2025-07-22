@@ -292,7 +292,7 @@ export default {
         type: "fn",
         fn: "mergeSort",
         args: "arr: number[]",
-        return: "void",
+        return: "number[]",
         description: "Implement the merge sort algorithm.",
         details:
             "A divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts them, and then merges them back together in sorted order.",
@@ -300,7 +300,7 @@ export default {
             arr: "The array to sort",
         },
         returnDescription:
-            "No return value - modifies the input array in place",
+            "A new array containing the sorted elements",
     },
 
     QuickSort: {
@@ -311,6 +311,11 @@ export default {
         description: "Implement the quick sort algorithm.",
         details:
             "A divide-and-conquer sorting algorithm that selects a pivot element and partitions the array around it.",
+        paramDescriptions: {
+            arr: "The array to sort",
+        },
+        returnDescription:
+            "No return value - modifies the input array in place",
     },
 
     DijkstraList: {
