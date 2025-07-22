@@ -12,15 +12,9 @@
         "moduleResolution": "bundler",
         "baseUrl": "src",
         "paths": {
-            "@code/*": [
-                "day10/*"
-            ]
+            "@code/*": ["day9/*"]
         }
     },
-    "include": [
-        "./src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules"]
 }
