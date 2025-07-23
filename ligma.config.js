@@ -2,7 +2,7 @@ export default {
     dsa: [
         // "depthFirstSearchOnBinarySearchTree",
         // "LeastRecentlyUsedCacheDS",
-        "LinearSearchList",
+        // "LinearSearchList",
         "BinarySearchList",
         "TwoCrystalBalls",
         "BubbleSort",
@@ -11,7 +11,7 @@ export default {
         "SinglyLinkedList",
         "DoublyLinkedList",
         "Queue",
-        // "Stack",
+        "Stack",
         // "ArrayList",
         // "MazeSolver",
         // "QuickSort",
