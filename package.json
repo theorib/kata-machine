@@ -14,7 +14,7 @@
     },
     "scripts": {
         "test": "vitest",
-        "test:all": "vitest run BinarySearchList TwoCrystalBalls BubbleSort InsertionSort MergeSort SinglyLinkedList DoublyLinkedList Queue Stack",
+        "test:all": "vitest run BinarySearchList TwoCrystalBalls BubbleSort InsertionSort MergeSort SinglyLinkedList DoublyLinkedList Queue Stack QuickSort",
         "clear": "node ./scripts/clear.js",
         "prettier": "prettier --write ./src",
         "generate": "node ./scripts/generate.js",

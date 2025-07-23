@@ -14,7 +14,7 @@ export default {
         "Stack",
         // "ArrayList",
         // "MazeSolver",
-        // "QuickSort",
+        "QuickSort",
         // "BTPreOrder",
         // "BTInOrder",
         // "BTPostOrder",
