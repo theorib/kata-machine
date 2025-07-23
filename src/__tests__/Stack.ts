@@ -1,41 +1,96 @@
 import { it, expect } from "vitest";
 import Stack from "@code/Stack";
 
-it("stack", function () {
-    const list = new Stack<number>();
-
-    list.push(5);
-    list.push(7);
-    list.push(9);
-
-    expect(list.pop()).toEqual(9);
-    expect(list.length).toEqual(2);
-
-    list.push(11);
-    expect(list.pop()).toEqual(11);
-    expect(list.pop()).toEqual(7);
-    expect(list.peek()).toEqual(5);
-    expect(list.pop()).toEqual(5);
-    expect(list.pop()).toEqual(undefined);
-
-    // just wanted to make sure that I could not blow up myself when i remove
-    // everything
-    list.push(69);
-    expect(list.peek()).toEqual(69);
-    expect(list.length).toEqual(1);
-
-    //yayaya
-});
-
-it("stack-2", function () {
+it("should push elements and maintain correct length", function () {
     const stack = new Stack<number>();
 
+    stack.push(5);
+    expect(stack.length).toEqual(1);
+
+    stack.push(7);
+    expect(stack.length).toEqual(2);
+
+    stack.push(9);
+    expect(stack.length).toEqual(3);
+});
+
+it("should pop elements in LIFO order", function () {
+    const stack = new Stack<number>();
+    
+    stack.push(5);
+    stack.push(7);
+    stack.push(9);
+
+    expect(stack.pop()).toEqual(9);
+    expect(stack.pop()).toEqual(7);
+    expect(stack.pop()).toEqual(5);
+});
+
+it("should update length correctly after pop operations", function () {
+    const stack = new Stack<number>();
+    
+    stack.push(5);
+    stack.push(7);
+    stack.push(9);
+    
+    expect(stack.length).toEqual(3);
+    
+    stack.pop();
+    expect(stack.length).toEqual(2);
+    
+    stack.pop();
+    expect(stack.length).toEqual(1);
+    
+    stack.pop();
     expect(stack.length).toEqual(0);
+});
+
+it("should peek at top element without removing it", function () {
+    const stack = new Stack<number>();
+    
+    stack.push(5);
+    expect(stack.peek()).toEqual(5);
+    expect(stack.length).toEqual(1);
+    
+    stack.push(7);
+    expect(stack.peek()).toEqual(7);
+    expect(stack.length).toEqual(2);
+});
+
+it("should handle push and pop operations after becoming empty", function () {
+    const stack = new Stack<number>();
+    
+    stack.push(5);
+    stack.push(7);
+    
+    stack.pop();
+    stack.pop();
+    expect(stack.length).toEqual(0);
+    
+    stack.push(69);
+    expect(stack.peek()).toEqual(69);
+    expect(stack.length).toEqual(1);
+});
+
+it("should return undefined when popping from empty stack", function () {
+    const stack = new Stack<number>();
+
     expect(stack.pop()).toEqual(undefined);
+});
+
+it("should return undefined when peeking at empty stack", function () {
+    const stack = new Stack<number>();
+
     expect(stack.peek()).toEqual(undefined);
 });
 
-it("stack-3", function () {
+it("should have length of 0 when newly created", function () {
+    const stack = new Stack<number>();
+
+    expect(stack.length).toEqual(0);
+});
+
+it("should work with string type elements", function () {
     const stack = new Stack<string>();
 
     stack.push("hello");
@@ -48,7 +103,7 @@ it("stack-3", function () {
     expect(stack.length).toEqual(1);
 });
 
-it("stack-4", function () {
+it("should handle single element operations correctly", function () {
     const stack = new Stack<number>();
 
     stack.push(1);
@@ -58,7 +113,7 @@ it("stack-4", function () {
     expect(stack.peek()).toEqual(undefined);
 });
 
-it("stack-5", function () {
+it("should handle large number of elements correctly", function () {
     const stack = new Stack<number>();
 
     for (let i = 0; i < 100; i++) {
@@ -73,4 +128,18 @@ it("stack-5", function () {
     }
 
     expect(stack.length).toEqual(0);
+});
+
+it("should maintain LIFO behavior with mixed push/pop operations", function () {
+    const stack = new Stack<number>();
+    
+    stack.push(1);
+    stack.push(2);
+    expect(stack.pop()).toEqual(2);
+    
+    stack.push(3);
+    stack.push(4);
+    expect(stack.pop()).toEqual(4);
+    expect(stack.pop()).toEqual(3);
+    expect(stack.pop()).toEqual(1);
 });
