@@ -8,7 +8,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@code': resolve(__dirname, './src/day10'),
+      '@code': resolve(__dirname, './src/day13'),
     },
   },
 })
