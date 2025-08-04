@@ -343,7 +343,7 @@ export default {
         type: "fn",
         fn: "binarySearchList",
         args: "haystack: number[], needle: number",
-        return: "boolean",
+        return: "number",
         description: "Implement binary search on a sorted array.",
         details:
             "Search for a target value in a sorted array using the binary search algorithm with O(log n) time complexity.",
@@ -352,7 +352,7 @@ export default {
             needle: "The value to search for",
         },
         returnDescription:
-            "True if the needle is found in the haystack, false otherwise",
+            "The index of the needle if found in the haystack, -1 otherwise",
     },
 
     LinearSearchList: {
