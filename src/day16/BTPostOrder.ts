@@ -1,0 +1,16 @@
+/**
+ * Implement post-order traversal of a binary tree.
+ *
+ * Visit nodes in the order: left subtree, right subtree, root.
+ * @param head - Parameter of type BinaryNode<number>
+ * @returns Returns number[]
+ */
+export default function postOrderSearch(head: BinaryNode<number>): number[] {
+    const result: number[] = [];
+    if (!head) return result;
+    if (head.left) result.push(...postOrderSearch(head.left));
+    if (head.right) result.push(...postOrderSearch(head.right));
+    result.push(head.value);
+
+    return result;
+}
