@@ -5,20 +5,19 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
-        "@types/node": "^24.0.13",
+        "@types/node": "^24.2.0",
         "prettier": "^3.6.2",
         "ts-node": "^10.8.1",
-        "tsconfig-paths": "^4.0.0",
-        "typescript": "^5.8.3",
+        "typescript": "^5.9.2",
         "vitest": "^3.2.4"
     },
     "scripts": {
         "test": "vitest",
-        "test:all": "vitest run BinarySearchList TwoCrystalBalls BubbleSort InsertionSort MergeSort SinglyLinkedList DoublyLinkedList Queue Stack QuickSort",
+        "test:all": "vitest run depthFirstSearchOnBinarySearchTree BinarySearchList TwoCrystalBalls BubbleSort InsertionSort MergeSort SinglyLinkedList DoublyLinkedList Queue Stack QuickSort BTPreOrder BTInOrder BTPostOrder BTBFS CompareBinaryTrees",
         "clear": "node ./scripts/clear.js",
         "prettier": "prettier --write ./src",
         "generate": "node ./scripts/generate.js",
-        "day": "echo src/day13"
+        "day": "echo src/day17"
     },
     "devDependencies": {
         "@swc-node/register": "^1.6.7"
