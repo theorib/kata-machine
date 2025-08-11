@@ -19,5 +19,6 @@ export default function compare(
     if (a?.value !== b?.value) return false;
 
     // recurse
+    // so long as we keep reaching only the first base case, it will bubble up and we don't have to create specific base cases for truthyness all over the place
     return compare(a.left, b.left) && compare(a.right, b.right);
 }
